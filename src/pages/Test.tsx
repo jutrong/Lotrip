@@ -1,5 +1,11 @@
+import HotelListAddButton from '@components/test/HotelListAddButton'
+
 const Text = () => {
-  return <div>Text</div>
+  return (
+    <div>
+      <HotelListAddButton />
+    </div>
+  )
 }
 
 export default Text
