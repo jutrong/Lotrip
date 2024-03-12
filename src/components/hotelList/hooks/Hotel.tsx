@@ -1,17 +1,61 @@
 import { css } from '@emotion/react'
+import { differenceInMilliseconds, parseISO } from 'date-fns'
 import Flex from '@/components/shared/Flex'
 import { Hotel as IHotel } from '@models/hotel'
 import ListRow from '@shared/ListRow'
 import Text from '@shared/Text'
 import Spacing from '@shared/Spacing'
 import addDelimiter from '@/utils/addDelimiter'
+import Tag from '@/components/shared/Tag'
+import { useEffect, useState } from 'react'
+import formatTime from '@/utils/formatTime'
 
 const Hotel = ({ hotel }: { hotel: IHotel }) => {
+  const [remainedTime, setRemainedTime] = useState(0)
+  console.log(remainedTime)
+  const tagComponent = () => {
+    if (hotel.events == null) return null
+
+    const { name, tagThemeStyle } = hotel.events
+    const promotionTxt =
+      remainedTime > 0 ? `- ${formatTime(remainedTime)} 남음` : ''
+    return (
+      <div>
+        <Tag
+          color={tagThemeStyle.fontColor}
+          backgroundColor={tagThemeStyle.backgroundColor}
+        >
+          {name.concat(promotionTxt)}
+        </Tag>
+        <Spacing size={8} />
+      </div>
+    )
+  }
+  useEffect(() => {
+    if (hotel.events == null || hotel.events.promoEndTime == null) return
+
+    const timer = setInterval(() => {
+      const 남은초 = differenceInMilliseconds(
+        parseISO(hotel.events?.promoEndTime as string),
+        new Date(),
+      )
+
+      if (남은초 < 0) {
+        clearInterval(timer)
+      }
+      setRemainedTime(남은초)
+
+      return () => {
+        clearInterval(timer)
+      }
+    }, 1000)
+  }, [hotel.events])
   return (
     <div>
       <ListRow
         contents={
           <Flex direction="column">
+            {tagComponent()}
             <ListRow.Texts
               title={hotel.name}
               subTitle={hotel.comment}
@@ -36,13 +80,13 @@ const Hotel = ({ hotel }: { hotel: IHotel }) => {
 }
 
 const containerStyles = css`
-  align-items: flex-start;
-`
+    align - items: flex - start;
+    `
 const imageStyles = css`
-  width: 90px;
-  height: 110px;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-left: 16px;
-`
+    width: 90px;
+    height: 110px;
+    border - radius: 8px;
+    object - fit: cover;
+    margin - left: 16px;
+    `
 export default Hotel

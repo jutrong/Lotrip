@@ -42,6 +42,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.2.62"],\
           ["@types/react-dom", "npm:18.2.19"],\
           ["craco-alias", "npm:3.0.1"],\
+          ["date-fns", "npm:3.4.0"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-prettier", "virtual:448108fcd0008d25333fd5002bfb18b484e77aa87dd4cc6594d7ec5ff9111c505041b2bd1909dd9282ddba66b343ae5b28bbfb35e3c22456e896861c0dd9972b#npm:9.1.0"],\
           ["eslint-config-react-app", "virtual:448108fcd0008d25333fd5002bfb18b484e77aa87dd4cc6594d7ec5ff9111c505041b2bd1909dd9282ddba66b343ae5b28bbfb35e3c22456e896861c0dd9972b#npm:7.0.1"],\
@@ -9414,6 +9415,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["date-fns", [\
+      ["npm:3.4.0", {\
+        "packageLocation": "../.yarn/berry/cache/date-fns-npm-3.4.0-77ddef82e4-10c0.zip/node_modules/date-fns/",\
+        "packageDependencies": [\
+          ["date-fns", "npm:3.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["debug", [\
       ["npm:2.6.9", {\
         "packageLocation": "../.yarn/berry/cache/debug-npm-2.6.9-7d4cb597dc-10c0.zip/node_modules/debug/",\
@@ -13992,6 +14002,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.2.62"],\
           ["@types/react-dom", "npm:18.2.19"],\
           ["craco-alias", "npm:3.0.1"],\
+          ["date-fns", "npm:3.4.0"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-prettier", "virtual:448108fcd0008d25333fd5002bfb18b484e77aa87dd4cc6594d7ec5ff9111c505041b2bd1909dd9282ddba66b343ae5b28bbfb35e3c22456e896861c0dd9972b#npm:9.1.0"],\
           ["eslint-config-react-app", "virtual:448108fcd0008d25333fd5002bfb18b484e77aa87dd4cc6594d7ec5ff9111c505041b2bd1909dd9282ddba66b343ae5b28bbfb35e3c22456e896861c0dd9972b#npm:7.0.1"],\

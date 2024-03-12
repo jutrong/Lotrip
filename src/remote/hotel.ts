@@ -21,7 +21,6 @@ export const getHotels = async (pageParams?: QuerySnapshot<Hotel>) => {
           startAfter(pageParams),
           limit(10),
         )
-
   const hotelsSnapshop = await getDocs(hotelQuery)
 
   const items = hotelsSnapshop.docs.map(
