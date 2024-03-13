@@ -9,16 +9,19 @@ import addDelimiter from '@/utils/addDelimiter'
 import Tag from '@/components/shared/Tag'
 import { useEffect, useState } from 'react'
 import formatTime from '@/utils/formatTime'
+import { Link } from 'react-router-dom'
 
-const Hotel = ({ hotel }: { hotel: IHotel }) => {
+const HotelItem = ({ hotel }: { hotel: IHotel }) => {
   const [remainedTime, setRemainedTime] = useState(0)
-  console.log(remainedTime)
+
   const tagComponent = () => {
     if (hotel.events == null) return null
 
     const { name, tagThemeStyle } = hotel.events
+
     const promotionTxt =
       remainedTime > 0 ? `- ${formatTime(remainedTime)} 남음` : ''
+
     return (
       <div>
         <Tag
@@ -52,29 +55,35 @@ const Hotel = ({ hotel }: { hotel: IHotel }) => {
   }, [hotel.events])
   return (
     <div>
-      <ListRow
-        contents={
-          <Flex direction="column">
-            {tagComponent()}
-            <ListRow.Texts
-              title={hotel.name}
-              subTitle={hotel.comment}
-            ></ListRow.Texts>
-            <Spacing size={4} />
-            <Text typography="t7" color="gray">
-              {hotel.starRating}
-            </Text>
-          </Flex>
-        }
-        right={
-          <Flex direction="column" align="flex-end">
-            <img src={hotel.mainImageUrl} alt="호텔 이미지" css={imageStyles} />
-            <Spacing size={8} />
-            <Text bold={true}>{addDelimiter(hotel.price)}원</Text>
-          </Flex>
-        }
-        style={containerStyles}
-      />
+      <Link to={`/hotel/${hotel.id}`}>
+        <ListRow
+          contents={
+            <Flex direction="column">
+              {tagComponent()}
+              <ListRow.Texts
+                title={hotel.name}
+                subTitle={hotel.comment}
+              ></ListRow.Texts>
+              <Spacing size={4} />
+              <Text typography="t7" color="gray">
+                {hotel.starRating}
+              </Text>
+            </Flex>
+          }
+          right={
+            <Flex direction="column" align="flex-end">
+              <img
+                src={hotel.mainImageUrl}
+                alt="호텔 이미지"
+                css={imageStyles}
+              />
+              <Spacing size={8} />
+              <Text bold={true}>{addDelimiter(hotel.price)}원</Text>
+            </Flex>
+          }
+          style={containerStyles}
+        />
+      </Link>
     </div>
   )
 }
@@ -89,4 +98,4 @@ const imageStyles = css`
     object - fit: cover;
     margin - left: 16px;
     `
-export default Hotel
+export default HotelItem

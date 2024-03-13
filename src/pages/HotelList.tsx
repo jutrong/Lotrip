@@ -1,5 +1,5 @@
 import InfiniteScroll from 'react-infinite-scroll-component'
-import Hotel from '@/components/hotelList/hooks/Hotel'
+import Hotel from '@/components/hotelList/hooks/HotelItem'
 import useHotels from '@/components/hotelList/hooks/useHotels'
 import Spacing from '@/components/shared/Spacing'
 import Top from '@shared/Top'
@@ -7,6 +7,7 @@ import { Fragment } from 'react'
 
 const HotelList = () => {
   const { data: hotels, hasNextPage, loadMore } = useHotels()
+  console.log(hotels)
   return (
     <div>
       <Top title="인기 호텔" subTitle="호텔부터 펜션까지 최저가" />
