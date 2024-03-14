@@ -1,8 +1,8 @@
 import Button from '@shared/Button'
 
-import { EVENTS, HOTEL, HOTEL_NAMES, IMAGES, ROOMS } from '@/mock/data'
-import { COLLECTIONS } from '@/constants'
-import { store } from '@/remote/firebase'
+import { EVENTS, HOTEL, HOTEL_NAMES, IMAGES, ROOMS } from '@mock/data'
+import { COLLECTIONS } from '@constants'
+import { store } from '@remote/firebase'
 import { collection, doc, writeBatch } from 'firebase/firestore'
 
 // min에서 max 범위의 랜덤값 가져오기

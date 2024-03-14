@@ -1,7 +1,7 @@
 import InfiniteScroll from 'react-infinite-scroll-component'
-import Hotel from '@/components/hotelList/hooks/HotelItem'
-import useHotels from '@/components/hotelList/hooks/useHotels'
-import Spacing from '@/components/shared/Spacing'
+import Hotel from '@components/hotelList/hooks/HotelItem'
+import useHotels from '@components/hotelList/hooks/useHotels'
+import Spacing from '@components/shared/Spacing'
 import Top from '@shared/Top'
 import { Fragment } from 'react'
 

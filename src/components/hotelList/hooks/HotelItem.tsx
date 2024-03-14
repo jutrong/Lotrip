@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
 import { differenceInMilliseconds, parseISO } from 'date-fns'
-import Flex from '@/components/shared/Flex'
+import Flex from '@components/shared/Flex'
 import { Hotel as IHotel } from '@models/hotel'
 import ListRow from '@shared/ListRow'
 import Text from '@shared/Text'
 import Spacing from '@shared/Spacing'
-import addDelimiter from '@/utils/addDelimiter'
-import Tag from '@/components/shared/Tag'
+import addDelimiter from '@utils/addDelimiter'
+import Tag from '@components/shared/Tag'
 import { useEffect, useState } from 'react'
-import formatTime from '@/utils/formatTime'
+import formatTime from '@utils/formatTime'
 import { Link } from 'react-router-dom'
 
 const HotelItem = ({ hotel }: { hotel: IHotel }) => {

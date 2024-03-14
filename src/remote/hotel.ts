@@ -9,9 +9,9 @@ import {
   getDoc,
 } from 'firebase/firestore'
 
-import { COLLECTIONS } from '@/constants'
+import { COLLECTIONS } from '@constants'
 import { store } from './firebase'
-import { Hotel } from '@/models/hotel'
+import { Hotel } from '@models/hotel'
 
 export const getHotels = async (pageParams?: QuerySnapshot<Hotel>) => {
   // pageParams가 null(첫페이지)이면 10개의 호텔을 가져오고, 아니면 pageParams를 기준으로 10개의 호텔을 가져온다.
