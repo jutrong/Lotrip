@@ -3,8 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import TestPage from '@pages/Test'
 import HotelList from '@pages/HotelList'
 import Hotel from '@pages/Hotel'
+import useLoadKakao from '@hooks/useLoadKakao'
 
 function App() {
+  useLoadKakao()
+
   return (
     <BrowserRouter>
       <Routes>

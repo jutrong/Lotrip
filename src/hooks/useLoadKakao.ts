@@ -9,10 +9,10 @@ declare global {
 const useLoadKakao = () => {
   useEffect(() => {
     const script = document.createElement('script')
-    script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js'
+    script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js'
     script.async = true
 
-    document.body.appendChild(script)
+    document.head.appendChild(script)
 
     script.onload = () => {
       if (!window.Kakao.isInitialized()) {

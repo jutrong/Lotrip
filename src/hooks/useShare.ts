@@ -1,14 +1,15 @@
 import { useCallback } from 'react'
 
-interface shareProps {
+interface ShareProps {
   title: string
   description: string
   imageUrl: string
   buttonLabel: string
 }
+
 const useShare = () => {
   const handleShare = useCallback(
-    ({ title, description, imageUrl, buttonLabel }: shareProps) => {
+    ({ title, description, imageUrl, buttonLabel }: ShareProps) => {
       window.Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
