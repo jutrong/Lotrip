@@ -2,19 +2,28 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import TestPage from '@pages/Test'
 import HotelList from '@pages/HotelList'
-import Hotel from '@pages/Hotel'
+import HotelDetail from '@pages/Hotel'
+// import MyPage from '@pages/My'
+import SigninPage from '@pages/Signin'
 import useLoadKakao from '@hooks/useLoadKakao'
+import AuthGuard from '@components/auth/AuthGuard'
+import Navbar from '@components/shared/Navbar'
 
 function App() {
   useLoadKakao()
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HotelList />} />
-        <Route path="/hotel/:id" element={<Hotel />} />
-        <Route path="/test" element={<TestPage />} />
-      </Routes>
+      <AuthGuard>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HotelList />} />
+          <Route path="/hotel/:id" element={<HotelDetail />} />
+          {/* <Route path="/my" element={<MyPage />} /> */}
+          <Route path="/signin" element={<SigninPage />} />
+          <Route path="/test" element={<TestPage />} />
+        </Routes>
+      </AuthGuard>
     </BrowserRouter>
   )
 }

@@ -4,6 +4,7 @@ import useHotels from '@components/hotelList/hooks/useHotels'
 import Spacing from '@components/shared/Spacing'
 import Top from '@shared/Top'
 import { Fragment } from 'react'
+import useUser from '@hooks/auth/useUser'
 
 const HotelList = () => {
   const { data: hotels, hasNextPage, loadMore } = useHotels()

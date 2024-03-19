@@ -6,6 +6,7 @@ import { useCallback } from 'react'
 import { colors } from '@styles/colorPalette'
 import Flex from '@shared/Flex'
 import Button from '@shared/Button'
+import useUser from '@hooks/auth/useUser'
 
 // TODO
 function Navbar() {
@@ -13,13 +14,22 @@ function Navbar() {
   const showSignButton =
     ['/signup', '/signin'].includes(location.pathname) === false
 
-  const user = null
+  const user = useUser()
 
   const renderButton = useCallback(() => {
     if (user != null) {
       return (
         <Link to="/my">
-          <img src="" alt="" />
+          <img
+            src={
+              user.photoURL ??
+              'https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-128.png'
+            }
+            alt="유저의 이미지"
+            width={40}
+            height={40}
+            style={{ borderRadius: '100%' }}
+          />
         </Link>
       )
     }
