@@ -110,6 +110,7 @@ const HotelItem = ({
                 css={iconHeartStyles}
                 onClick={handleLike}
               />
+              <img src={hotel.mainImageUrl} alt="" css={imageStyles} />
               <Spacing size={8} />
               <Text bold={true}>{addDelimiter(hotel.price)}원</Text>
             </Flex>

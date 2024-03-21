@@ -5,9 +5,11 @@ import Spacing from '@components/shared/Spacing'
 import Top from '@shared/Top'
 import { Fragment } from 'react'
 import useUser from '@hooks/auth/useUser'
+import useLike from '@hooks/like/useLike'
 
 const HotelList = () => {
   const { data: hotels, hasNextPage, loadMore } = useHotels()
+  const { data: likes, mutate: like } = useLike()
 
   return (
     <div>
@@ -22,7 +24,11 @@ const HotelList = () => {
         <ul>
           {hotels?.map((hotel, idx) => (
             <Fragment key={hotel.id}>
-              <Hotel hotel={hotel} />
+              <Hotel
+                hotel={hotel}
+                isLike={Boolean(likes?.find(like => like.hotelId === hotel.id))}
+                onLike={like}
+              />
 
               {hotels.length - 1 === idx ? null : (
                 <Spacing
