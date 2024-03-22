@@ -26,7 +26,7 @@ export async function getLikes({ userId }: { userId: string }) {
   )
 
   return snapshot.docs.map(
-    doc =>
+    (doc) =>
       ({
         id: doc.id,
         ...doc.data(),
@@ -70,7 +70,7 @@ export async function toggleLike({
     } else {
       const batch = writeBatch(store)
 
-      updateTargetSnapshot.forEach(doc => {
+      updateTargetSnapshot.forEach((doc) => {
         batch.update(doc.ref, { order: doc.data().order - 1 })
       })
 
@@ -109,7 +109,7 @@ export async function toggleLike({
 export function updateOrder(likes: Like[]) {
   const batch = writeBatch(store)
 
-  likes.forEach(like => {
+  likes.forEach((like) => {
     batch.update(doc(collection(store, COLLECTIONS.LIKE), like.id), {
       order: like.order,
     })
