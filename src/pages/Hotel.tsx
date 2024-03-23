@@ -8,6 +8,7 @@ import Rooms from '@components/hotel/Rooms'
 import Map from '@components/hotel/Map'
 import RecommendHotels from '@components/hotel/RecommendHotels'
 import ActionButtons from '@components/hotel/ActionButtons'
+import Review from '@components/hotel/Review'
 
 const Hotel = () => {
   const { id } = useParams() as { id: string }
@@ -27,6 +28,7 @@ const Hotel = () => {
       <Contents contents={contents} />
       <Map location={location} />
       <RecommendHotels recommendHotels={recommendHotels} />
+      <Review hotelId={id} />
     </div>
   )
 }
